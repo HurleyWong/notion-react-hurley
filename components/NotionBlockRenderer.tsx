@@ -146,7 +146,7 @@ export const renderNotionBlock = (block: any): JSX.Element => {
 
     case 'table':
       return (
-        <table className='w-full table-fixed'>
+        <table className='w-full table-auto'>
           {value.children?.map((block: any) => (
             <Fragment key = {block.id}>{renderNotionBlock(block)}</Fragment>
           ))}
@@ -155,7 +155,7 @@ export const renderNotionBlock = (block: any): JSX.Element => {
 
     case 'table_row':
       return (
-        <tr className=''>
+        <tr className='p-2 bg-light-300 dark:bg-dark-600'>
           <Table table = {value.cells} />
         </tr>
       )
