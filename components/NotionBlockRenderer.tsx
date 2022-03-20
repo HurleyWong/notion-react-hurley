@@ -4,6 +4,7 @@ import { nord } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 import Latex from 'react-latex-next'
 
 import { Text } from './blocks/NotionTextBlock'
+import Table from './blocks/NotionTable'
 import Bookmark from './blocks/NotionBookmark'
 import { slugify } from 'transliteration'
 import NotionImage, { getMediaCtx } from './blocks/NotionImage'
@@ -142,6 +143,22 @@ export const renderNotionBlock = (block: any): JSX.Element => {
 
     case 'equation':
       return <Latex>{`\\[${value.expression}\\]`}</Latex>
+
+    case 'table':
+      return (
+        <table className='w-full table-fixed'>
+          {value.children?.map((block: any) => (
+            <Fragment key = {block.id}>{renderNotionBlock(block)}</Fragment>
+          ))}
+        </table>
+      )
+
+    case 'table_row':
+      return (
+        <tr className=''>
+          <Table table = {value.cells} />
+        </tr>
+      )
 
     default:
       return <p>`❌ Unsupported block (${type === 'unsupported' ? 'unsupported by Notion API' : type})`</p>
