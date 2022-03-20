@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono&family=Overpass:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&display=swap');
+
+a {
+  @apply border-b border-b-dark-200/30 transition-all duration-100 no-underline dark:border-b-light-900/50 hover:border-b-dark-200/60 dark:hover:border-b-light-900/80;
+}
+
+p,
+li {
+  @apply text-dark-900/80 leading-7 overflow-ellipsis overflow-hidden dark:text-light-900/80;
+}
+
+.heading-text {
+  @apply text-dark-900 dark:text-light-900;
+}
+.primary-text {
+  @apply text-dark-900/80 dark:text-light-900/80;
+}
+
+.secondary-text {
+  @apply text-dark-900/60 dark:text-light-900/60;
+}
+
+code {
+  @apply font-mono;
+}
+
+button {
+  @apply focus-visible:outline-none focus:outline-none !important;
+}
+
+* {
+  @apply box-border;
+}
+
+*::selection {
+  @apply bg-sky-300/20 dark:bg-sky-600/20;
+}
